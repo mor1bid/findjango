@@ -32,7 +32,7 @@ def mkdish(request):
             for i in range(1, recize):
                 recipe = Recipe.objects.get(pk=i)
                 rec = recipe.pk
-                if myid == rec:
+                if myid == rec and myid != 0:
                     fs.save(mypic.name, mypic)
                     recipe.name = myname
                     recipe.desc = mydesc
@@ -45,10 +45,11 @@ def mkdish(request):
                 elif myid > recize:
                     myrecipe = Recipe(name=myname, desc=mydesc, steps=mysteps, time=mytime, tm=mytm)
                     fs.save(mypic.name, mypic)
-                    recipe.pic = str(request.FILES['pic'])
+                    myrecipe.pic = str(request.FILES['pic'])
                     myrecipe.save()
                     print('Рецепт записан! Спасибо!')
-                    i = recize
+                    myid = 0
+            form = RecipeForm()
     else:
         form = RecipeForm()
     return render(request, 'mkdish.html', {'form': form })

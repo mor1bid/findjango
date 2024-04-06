@@ -5,11 +5,9 @@
 <h1>Ого, регистрация!</h1>
 <h3>Подай себя и все свои документы здесь:</h3>
 <form action="submit">
-    <a>Имя</a>
-    {% csrf_token %}     
-    <input type="text" name="Name"/>
-    <a>Фамилия</a>      
-    <input type="text" name="Surname"/>
+    {% csrf_token %}  
+    <a>Ваш ник</a>   
+    <input type="text" name="Username"/>
     <a>Эл. почта</a>    
     <input type="email" name="Email"/>
     <a>Пароль</a>       
@@ -22,5 +20,5 @@
 {% endblock %}
 
 {% block bottom %}
-<h4><a href="{% url 'regi' %}">Убежать!</a> <a href="{% url 'mkdish' %}">Дать еды!</a> <a href="">Полить цветы!</a></h4>
+<h4><a href="{% url 'basic' %}">Убежать!</a> <a href="{% url 'mkdish' %}">Дать еды!</a> <a href="">Полить цветы!</a></h4>
 {% endblock %}

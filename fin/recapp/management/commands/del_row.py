@@ -8,7 +8,6 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         pk = kwargs['pk']
         ware = Recipe.objects.filter(pk=pk).first()
-        print(ware)
         if ware is not None:
             ware.delete()
             self.stdout.write("Запись удалена")

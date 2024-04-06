@@ -10,5 +10,9 @@ class Recipe(models.Model):
 class Category(models.Model):
     name = models.CharField(default='', max_length=100, help_text='Название категории')
 class RecCat(models.Model):
-    category = models.ForeignKey(Category, help_text='Название категории', on_delete=models.CASCADE)
-    recs = models.ForeignKey(Recipe, help_text='Рецепты', on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, default='', help_text='Название категории', on_delete=models.SET_DEFAULT)
+    recs = models.ForeignKey(Recipe, default='', help_text='Рецепты', on_delete=models.SET_DEFAULT)
+class Login(models.Model):
+    username = models.CharField(max_length=50)
+    email = models.EmailField(max_length=50)
+    password = models.CharField(max_length=50)
