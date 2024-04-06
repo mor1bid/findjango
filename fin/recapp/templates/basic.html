@@ -6,6 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    
+    {% block content %}
+    <h1>Добро пожаловать!</h1><br> 
+    <h3>Мы тут рецептами делимся!</h3>
+    <p>Например!:</p>
+    <ul>
+        {% for i in recs %}
+            <li>{{ i }}</li>
+        {% endfor %}
+    </ul>
+    <br>
+    <h2>Здесь Ты сможешь!:</h2>
+    <h4><a href="{% url 'regi' %}">Зарегистровать себя!</a> <a href="">Дать еды!</a> <a href="">Полить цветы!</a></h4>
+    {% endblock %}
 </body>
 </html>

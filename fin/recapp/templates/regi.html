@@ -1,0 +1,20 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+
+<h1>Ого, регистрация!</h1>
+<h3>Подай себя и все свои документы здесь:</h3>
+<form action="submit">
+    <a>Имя</a>      
+    <input type="text" name="Name"/>
+    <a>Фамилия</a>      
+    <input type="text" name="Surname"/>
+    <a>Эл. почта</a>    
+    <input type="email" name="Email"/>
+    <a>Пароль</a>       
+    <input type="password" name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*).{8,}" required minlength="8">
+    <a>Подтвердить пароль</a>       
+    <input type="password" name="Confirm"><br>
+    <input type="submit" value="Отправить!">
+</form>
+{% endblock %}
