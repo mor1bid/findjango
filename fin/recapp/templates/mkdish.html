@@ -1,0 +1,13 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+
+<form method="post" enctype="multipart/form-data">
+    <h1>Это должно быть интересно.</h1>
+    <h3>Дерзай! с:</h3>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Загрузить!</button>
+</form>
+
+{% endblock %}

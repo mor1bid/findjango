@@ -5,5 +5,6 @@ from recapp.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', basic, name='basic'),
-    path('registration/', regi, name='regi')
+    path('regi.html/', regi, name='registration'),
+    path('mkdish.html/', mkdish, name='werewatchinye')
 ]
