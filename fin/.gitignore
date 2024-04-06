@@ -1,6 +1,6 @@
 __pycache__
-dzproj/media/*
-dzproj/static/*
+recapp/media/*
+recapp/static/*
 *.sqlite3
 *.log
 *.pyc
