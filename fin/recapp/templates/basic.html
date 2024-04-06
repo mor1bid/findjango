@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
@@ -17,7 +16,12 @@
     </ul>
     <br>
     <h2>Здесь Ты сможешь!:</h2>
+
+    {% endblock %}
+    
+    {% block bottom %}
     <h4><a href="{% url 'regi' %}">Зарегистровать себя!</a> <a href="{% url 'mkdish' %}">Дать еды!</a> <a href="">Полить цветы!</a></h4>
     {% endblock %}
+
 </body>
 </html>

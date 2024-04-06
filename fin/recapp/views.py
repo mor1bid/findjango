@@ -21,6 +21,7 @@ def mkdish(request):
         form = RecipeForm(request.POST, request.FILES)
         recize = Recipe.objects.count()
         if form.is_valid():
+            fs = FileSystemStorage()
             myid = form.cleaned_data['rec']
             myname = form.cleaned_data['name']
             mydesc = form.cleaned_data['desc']
@@ -32,20 +33,23 @@ def mkdish(request):
                 recipe = Recipe.objects.get(pk=i)
                 rec = recipe.pk
                 if myid == rec:
-                    fs = FileSystemStorage()
                     fs.save(mypic.name, mypic)
-                    rec.name = myname
-                    rec.desc = mydesc
-                    rec.steps = mysteps
-                    rec.time = mytime
-                    rec.pic = str(request.FILES['pic'])
-                    rec.tm = mytm
-                    rec.save()
+                    recipe.name = myname
+                    recipe.desc = mydesc
+                    recipe.steps = mysteps
+                    recipe.time = mytime
+                    recipe.pic = str(request.FILES['pic'])
+                    recipe.tm = mytm
+                    recipe.save()
                     print('Рецепт дополнен!')
-                elif i == recize or myid > recize:
-                    recipes = Recipe(name=myname, desc=mydesc, steps=mysteps, time=mytime, tm=mytm)
+                elif myid > recize:
+                    myrecipe = Recipe(name=myname, desc=mydesc, steps=mysteps, time=mytime, tm=mytm)
+                    fs.save(mypic.name, mypic)
+                    recipe.pic = str(request.FILES['pic'])
+                    myrecipe.save()
                     print('Рецепт записан! Спасибо!')
+                    i = recize
     else:
         form = RecipeForm()
-    return render(request, 'addwim.html', {'form': form })
+    return render(request, 'mkdish.html', {'form': form })
 

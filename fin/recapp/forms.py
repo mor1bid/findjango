@@ -2,9 +2,9 @@ from django import forms
 
 class RecipeForm(forms.Form):
     rec = forms.DecimalField(label='Номер рецепта')
-    name = forms.TextInput(default='', max_length=100, help_text='Название блюда')
-    desc = forms.CharField(default='', max_length=100, help_text='Описание')
-    steps = forms.CharField(default='', max_length=100, help_text='Шаги приготовления')
-    time = forms.DecimalField(max_digits=5, decimal_places=0, help_text='Время приготовления (n часов)')
-    pic = forms.ImageField(help_text='Изображение')
-    tm = forms.TextInput(default='', max_length=100,help_text='Автор')
+    name = forms.CharField(label='Название блюда', required=False)
+    desc = forms.CharField(label='Описание', required=False)
+    steps = forms.CharField(label='Шаги приготовления', required=False)
+    time = forms.DecimalField(label='Время приготовления (n часов)', required=False)
+    pic = forms.ImageField(label='Изображение', required=False)
+    tm = forms.CharField(label='Автор', required=False)

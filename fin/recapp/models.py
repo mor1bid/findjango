@@ -1,12 +1,12 @@
 from django.db import models
 
 class Recipe(models.Model):
-    name = models.TextField(default='', max_length=100, help_text='Название блюда', blank=True)
-    desc = models.CharField(default='', max_length=100, help_text='Описание', blank=True)
-    steps = models.CharField(default='', max_length=100, help_text='Шаги приготовления', blank=True)
-    time = models.DecimalField(max_digits=5, decimal_places=0, help_text='Время приготовления (n часов)', blank=True)
-    pic = models.ImageField(help_text='Изображение', blank=True)
-    tm = models.TextField(default='', max_length=100,help_text='Автор', blank=True)
+    name = models.TextField(default='', max_length=100, help_text='Название блюда')
+    desc = models.CharField(default='', max_length=100, help_text='Описание')
+    steps = models.CharField(default='', max_length=100, help_text='Шаги приготовления')
+    time = models.DecimalField(default=0, max_digits=5, decimal_places=0, help_text='Время приготовления (n часов)')
+    pic = models.ImageField(help_text='Изображение')
+    tm = models.TextField(default='', max_length=100,help_text='Автор')
 class Category(models.Model):
     name = models.CharField(default='', max_length=100, help_text='Название категории')
 class RecCat(models.Model):
