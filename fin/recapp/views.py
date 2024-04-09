@@ -6,9 +6,9 @@ from .forms import *
 
 def basic(request):
     names = []
+    checklist = Recipe.objects.all()
     for i in range(6):
         i = random.randint(1, Recipe.objects.count()-1)
-        checklist = Recipe.objects.all()
         recipe = Recipe.objects.get(id=checklist[i].pk)
         names.append(recipe.name + ' - ' + recipe.desc + '. Время готовки: ' + str(recipe.time) + ' часов')
     context = {'recs': names}
