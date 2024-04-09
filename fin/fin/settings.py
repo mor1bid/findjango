@@ -125,6 +125,7 @@ STATIC_ROOT = BASE_DIR / 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_REDIRECT_URL = '/admin'
 
 MEDIA_URL = 'recapp/media/'
 MEDIA_ROOT = BASE_DIR / 'recapp/media'

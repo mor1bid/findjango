@@ -16,6 +16,9 @@ def basic(request):
 def regi(request):
     return render(request, 'regi.html')
 
+def login(request):
+    return render(request, 'login.html')
+
 def mkdish(request):
     if request.method == 'POST':
         form = RecipeForm(request.POST, request.FILES)

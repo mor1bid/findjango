@@ -2,8 +2,7 @@
 
 {% block content %}
 
-<h1>Ого, регистрация!</h1>
-<h3>Подай себя и все свои документы здесь:</h3>
+<h1>Напомни, кто ты?..</h1>
 <form action="{% url 'basic' %}", method="post">
     {% csrf_token %}  
     <a>Ваш ник</a>   
@@ -20,9 +19,9 @@
 {% endblock %}
 
 {% block bottom %}
-<h3>Уже были здесь? Так идите <a href="{% url 'login' %}">туда!</a></h3>
+<h3>Ещё не были здесь? Загляните <a href="{% url 'login' %}">сюда!</a></h3>
 
 <p>...ИЛИ...</p>
 
-<h4><a href="{% url 'basic' %}">Убежать!</a> <a href="{% url 'mkdish' %}">Дать еды!</a> <a href="">Полить цветы!</a> <a href="logout">Выйти.</a></h4>
+<h4><a href="{% url 'basic' %}">Убежать!</a> <a href="{% url 'mkdish' %}">Дать еды!</a> <a href="">Полить цветы!</a></h4>
 {% endblock %}
